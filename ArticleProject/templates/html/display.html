@@ -1,0 +1,23 @@
+{% extends 'html/index.html' %}
+<h1>{% block title %} List of articles are ......{% endblock %}</h1>
+{% block content %}
+    <center>
+        
+        
+        {% if data %}
+            {% for i in data %}
+                <h3>{{i.name | upper}}</h3>
+               <p>{{i.desc | truncatechars:40}}</p>
+               <a href="{% url 'specific' i.id %}">
+                <button>Read More</button>
+              </a>
+            {% endfor %}
+        {% endif %}
+        <br>
+        <a href="{% url 'home' %}">
+            <button class="add-article-btn">Add Article</button>
+        </a>
+    </center>
+    {% endblock %}
+</body>
+</html>

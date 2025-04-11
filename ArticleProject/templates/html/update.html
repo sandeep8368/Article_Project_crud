@@ -1,0 +1,21 @@
+{% extends 'html/index.html' %}
+{% block title %} <h1>Update Article</h1>{% endblock %}
+{% block content %} 
+<form method="post">
+    {% csrf_token %}
+   
+    <input type="text" name = "name" value="{{data.name}}">
+
+    <br> <br>
+    
+    <textarea name="desc" required >{{data.desc}}</textarea>
+    
+    <a href="{% url 'specific' data.id %}">
+        <button >Update</button>
+    </a>
+    <br><br>
+    </form>
+    <a href="{% url 'allart' %}">
+        <button >All Articles</button>
+    </a>
+{% endblock %}
